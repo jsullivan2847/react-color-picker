@@ -1,23 +1,35 @@
-import logo from './logo.svg';
 import './App.css';
+import Choice from './components/Choice';
+import Color from './components/Color';
+// import {useState, useEffect} from 'react';
+
+
 
 function App() {
+  
+
+    
+//calls this once on page load and then the empty array
+//prevents infinite loop
+ 
+
+  
+  const colorField = () => {
+    const array = [];
+    for(let i = 0; i < 65; i++){
+      array.push(<Color key={i}/>);
+    }
+    return array;
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="colors-container">
+        {colorField()}
+      </div>
+
+      <Choice/>
+      <Choice/>
+      <Choice/>
     </div>
   );
 }
