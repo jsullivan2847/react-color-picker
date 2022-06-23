@@ -1,38 +1,18 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 
 
-const Color = (props) => {
+const Color = ({random, match}) => {
 
-    function getRandomColor(){
-        const getRandomInt = () => {
-          const randomInt = Math.floor(Math.random() * (255 - 0))
-          return randomInt;
-        };
-        const rgba = [getRandomInt(), getRandomInt(), getRandomInt()];
-        
-        return (`rgba(${rgba.toString()})`);
+    const handleClick = () => {
+       match(random);
     }
-
-    //creates state
-    const [colorState, setColorState] = useState(null);
-
-    //function to set color state to random color
-    const setColor = () => {
-      
-        setColorState(...colorState, getRandomColor);
-    }
-
-  
-    // useEffect(() => {setColor()}, []);
-
-    const color = getRandomColor();
-
+ 
+    
     return(
-            <div className='color'>
-                <style>
-                    { `.color{background-color: ${color}`}
-                </style>
+
+            <div onClick={handleClick} className='color' style={{backgroundColor: random}}>
             </div>
+
     );
 }
 

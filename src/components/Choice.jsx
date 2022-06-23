@@ -1,9 +1,17 @@
+import { useState } from "react";
 
 
-const Choice = () => {
+const Choice = (currentColor) => {
+
+    const [color, setColor] = useState(null);
+
+    const handleClick = () => {
+        setColor(currentColor.currentColor)
+        console.log(currentColor.currentColor)
+        console.log(color)
+    }
     return (
-        <div className="choice">
-               <h1>choice component</h1>
+        <div onClick={handleClick}className="choice" style={{backgroundColor: color}}>
         </div>
     )
 }

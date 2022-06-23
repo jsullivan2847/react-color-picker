@@ -1,35 +1,41 @@
 import './App.css';
 import Choice from './components/Choice';
-import Color from './components/Color';
+import Colors from './components/Colors';
+import Current from './components/Current';
+import { useState } from 'react';
 // import {useState, useEffect} from 'react';
 
 
 
 function App() {
+   //Generate Random Int
+   const getRandomInt = () => {
+    const randomInt = Math.floor(Math.random() * (255 - 0));
+    return randomInt;
+  };
+  //Generate Random RGBA value using 3 random Ints
+  const getRandomColor = () => {
+    const rgba = [getRandomInt(), getRandomInt(), getRandomInt()];
+    return `rgba(${rgba.toString()})`;
+  };
   
-
-    
-//calls this once on page load and then the empty array
-//prevents infinite loop
- 
-
-  
-  const colorField = () => {
-    const array = [];
-    for(let i = 0; i < 65; i++){
-      array.push(<Color key={i}/>);
-    }
-    return array;
+  const [currentColor, setCurrentColor] = useState(null);
+  const match = (color) => {
+    setCurrentColor(color);
   }
+
+  const saveColor = (color) => {
+    console.log(currentColor);
+  }
+  
+
   return (
     <div className="App">
-      <div className="colors-container">
-        {colorField()}
-      </div>
-
-      <Choice/>
-      <Choice/>
-      <Choice/>
+      <Colors match={match} randomColor={getRandomColor}/>
+      <Current currentColor={currentColor}/>
+      <Choice currentColor={currentColor}/>
+      <Choice currentColor={currentColor}/>
+      <Choice currentColor={currentColor}/>
     </div>
   );
 }
