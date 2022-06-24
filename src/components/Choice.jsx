@@ -12,6 +12,7 @@ const Choice = (currentColor) => {
     }
     return (
         <div onClick={handleClick}className="choice" style={{backgroundColor: color}}>
+            <p>{color}</p>
         </div>
     )
 }

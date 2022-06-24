@@ -6,8 +6,11 @@
   text-align: center;
   align-items: center;
 }
+.App:hover{
+  cursor:auto;
+}
 .colors-container{
-  margin-top: 100px;
+  margin-top: 30px;
   display: flex;
   flex-wrap: wrap;
   height: fit-content;
@@ -15,7 +18,7 @@
 }
 .choice{
   border: solid 2px black;
-  margin: 10px;
+  margin: 30px;
   width: 100px;
   height: 100px;
 }
@@ -30,14 +33,31 @@
   margin-left: 200px;
 }
 .current{
+  display: flex;
+  flex-direction: column;
   margin-top: 20px;
-  height: 100px;
+  height: 60px;
   width: 100px;
+  border: solid black 2px;
+}
+.hex:hover{
+  cursor:text;
+}
+.choices{
+  display: flex;
+  justify-content: space-between;
+}
+.paper{
+  width: 800px;
+  height: 400px;
   border: solid black 2px;
 }
 
 div:hover{
-  cursor: pointer;
+  cursor:pointer;
+}
+div:focus-within{
+  background-color: white;
 }
 
 
