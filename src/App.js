@@ -2,7 +2,7 @@ import './App.css';
 import Choice from './components/Choice';
 import Colors from './components/Colors';
 import Current from './components/Current';
-import Paper from './components/Paper'
+import Canvas from './components/Canvas'
 import { useState } from 'react';
 
 
@@ -26,6 +26,8 @@ function App() {
   
   
 
+
+
   return (
     <div className="App">
       <h1>React Color Picker</h1>
@@ -36,7 +38,7 @@ function App() {
       <Choice currentColor={currentColor}/>
       <Choice currentColor={currentColor}/>
       </div>
-      <Paper/>
+      <Canvas color={currentColor}/>
     </div>
   );
 }

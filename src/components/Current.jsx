@@ -2,7 +2,6 @@ import { SketchPicker, SliderPicker } from "react-color";
 
 const Current = ({currentColor, match}) => {
 
-    console.log(currentColor);
     return (
 
         <div className="current" style={{backgroundColor: currentColor}}>
