@@ -1,6 +1,23 @@
 import UseCanvas from "../hooks/UseCanvas";
 
-const Canvas = ({color}) => {
+const Canvas = ({ color }) => {
+
+    let mouseDown = false;
+
+  const initMouseListener = () => {
+    window.addEventListener("mouseup", () => {
+      mouseDown = false;
+    });
+    window.addEventListener("mousedown", () => {
+        mouseDown = true;
+        console.log(mouseDown);
+    });
+  };
+
+
+
+  initMouseListener();
+
   const draw = (ctx, frameCount, point) => {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     // ctx.fillStyle = '#000000'
@@ -10,14 +27,13 @@ const Canvas = ({color}) => {
     // ctx.moveTo(point.x, point.y);
     // ctx.lineTo(point.x +5,point.y +5);
     // ctx.stroke();
-    console.log(color)
-    if (point) {
-        ctx.stroke();
-      ctx.strokeStyle = color; 
-      ctx.moveTo(point.x, point.y);
-      ctx.lineTo(point.x + 5, point.y + 5);
-    
-    console.log(point);
+    if (point && mouseDown) {
+      ctx.strokeStyle = color;
+        ctx.moveTo(point.x, point.y);
+      //   ctx.lineTo(point.x + 5, point.y + 5);
+      ctx.arc(point.x, point.y, 5, 0, 2 * Math.PI);
+      ctx.stroke();
+      console.log(ctx);
     }
   };
 

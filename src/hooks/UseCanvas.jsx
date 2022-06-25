@@ -46,9 +46,9 @@ const UseCanvas = (draw) => {
     };
     render();
 
-    return () => {
-      window.cancelAnimationFrame(animationFrameId);
-    };
+    // return () => {
+    //   window.cancelAnimationFrame(animationFrameId);
+    // };
   }, [draw]);
   return canvasRef
 };
